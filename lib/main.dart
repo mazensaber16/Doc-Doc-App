@@ -1,3 +1,5 @@
+import 'package:doc_doc/core/di/di.dart';
+import 'package:doc_doc/feature/presentation/hom/pages/home_screen.dart';
 import 'package:doc_doc/feature/presentation/login/pages/login_screen.dart';
 import 'package:doc_doc/feature/presentation/onboarding/pages/onboarding_screen.dart';
 import 'package:doc_doc/feature/presentation/register/pages/register_screen.dart';
@@ -11,14 +13,12 @@ import 'core/utils/app_routes.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -37,6 +37,7 @@ class MyApp extends StatelessWidget {
                 AppRoutes.loginRoute:(context)=>LoginScreen(),
                 AppRoutes.onboardingRoute:(context)=>OnboardingScreen(),
               AppRoutes.registerRoute:(context)=>RegisterScreen(),
+              AppRoutes.homeRoute:(context)=>HomeScreen(),
 
             },
           );

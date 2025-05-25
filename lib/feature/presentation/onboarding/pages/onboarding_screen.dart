@@ -57,12 +57,10 @@ class OnboardingScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              Positioned(
-                child: Text(
-                  "Best Doctor\n Appointment App",
-                  style: AppStyles.bold32primary,
-                  textAlign: TextAlign.center,
-                ),
+              Text(
+                "Best Doctor\n Appointment App",
+                style: AppStyles.bold32primary,
+                textAlign: TextAlign.center,
               ),
               Text(
                 "Manage and schedule all of your medical appointments easily\n "
