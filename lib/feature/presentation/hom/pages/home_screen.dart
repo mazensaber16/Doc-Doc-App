@@ -91,7 +91,11 @@ class HomeScreen extends StatelessWidget {
                 SizedBox(height: 24.h),
 
                 // Doctor Speciality Section
-                CustomTitleWidget(title: "Doctor Speciality"),
+                CustomTitleWidget(title: "Doctor Speciality",onSeeAllTap: (){
+
+                  //Todo : Navigate to View All Specialities Screen
+                },
+                ),
                 SizedBox(height: 18.h),
                 SizedBox(
                   height: 100.h,
@@ -101,26 +105,31 @@ class HomeScreen extends StatelessWidget {
                     separatorBuilder: (context, index) => SizedBox(width: 16.w),
                     itemBuilder: (context, index) {
                       final item = doctorSpecialities[index];
-                      return Column(
-                        children: [
-                          Container(
-                            width: 60.w,
-                            height: 60.w,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              color: AppColors.secondWhiteColor,
-                              image: DecorationImage(
-                                image: AssetImage(item['image'] ?? ''),
-                                fit: BoxFit.cover,
+                      return InkWell(
+                        onTap: (){
+                          //Todo : Navigate Specialities Screen
+                        },
+                        child: Column(
+                          children: [
+                            Container(
+                              width: 60.w,
+                              height: 60.w,
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: AppColors.secondWhiteColor,
+                                image: DecorationImage(
+                                  image: AssetImage(item['image'] ?? ''),
+                                  fit: BoxFit.cover,
+                                ),
                               ),
                             ),
-                          ),
-                          SizedBox(height: 8.h),
-                          Text(
-                            item['name'] ?? '',
-                            style: AppStyles.semiBold16Black,
-                          ),
-                        ],
+                            SizedBox(height: 8.h),
+                            Text(
+                              item['name'] ?? '',
+                              style: AppStyles.semiBold16Black,
+                            ),
+                          ],
+                        ),
                       );
                     },
                   ),
@@ -131,6 +140,10 @@ class HomeScreen extends StatelessWidget {
                 // Recommendation Section
                 CustomTitleWidget(
                   title: "Recommendation Doctor",
+                  onSeeAllTap: (){
+
+                    //Todo : Navigate to View All Doctors Screen
+                  },
                   titleStyle: AppStyles.bold17Black,
                 ),
                 SizedBox(height: 12.h),
