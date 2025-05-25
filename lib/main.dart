@@ -13,7 +13,7 @@ import 'core/utils/app_routes.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
-  runApp( MyApp());
+  runApp( const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -33,11 +33,11 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             initialRoute:AppRoutes.splashRoute,
             routes: {
-                AppRoutes.splashRoute:(context)=>SplashScreen(),
-                AppRoutes.loginRoute:(context)=>LoginScreen(),
-                AppRoutes.onboardingRoute:(context)=>OnboardingScreen(),
+                AppRoutes.splashRoute:(context)=>const SplashScreen(),
+                AppRoutes.loginRoute:(context)=>const LoginScreen(),
+                AppRoutes.onboardingRoute:(context)=>const OnboardingScreen(),
               AppRoutes.registerRoute:(context)=>RegisterScreen(),
-              AppRoutes.homeRoute:(context)=>HomeScreen(),
+              AppRoutes.homeRoute:(context)=> HomeScreen(),
 
             },
           );

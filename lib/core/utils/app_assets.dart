@@ -13,7 +13,10 @@ class AssetsManager {
   static const String doctorImage="assets/icon/doctor_image.png";
   static const String backgroundImage="assets/icon/background1.png";
   static const String logoApp="assets/icon/logo_app.png";
-
-
+  static const String brainImage="assets/icon/brain.png";
+  static const String childrenImage="assets/icon/children.png";
+  static const String pediatricImage="assets/icon/pediatric.png";
+  static const String radiologyImage="assets/icon/radiology.png";
+  static const String doctorAnime="assets/icon/download (1).png";
 
 }

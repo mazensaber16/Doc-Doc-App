@@ -27,10 +27,18 @@ class AppStyles {
 
   static TextStyle semiBold20Black = GoogleFonts.poppins(
       fontSize: 20.sp, fontWeight: FontWeight.w500, color: AppColors.blackColor);
+  static TextStyle bold20Black = GoogleFonts.inter(
+      fontSize: 20.sp, fontWeight: FontWeight.bold, color: AppColors.blackColor);
+  static TextStyle bold17Black = GoogleFonts.inter(
+      fontSize: 17.sp, fontWeight: FontWeight.bold, color: AppColors.blackColor);
   static TextStyle semiBold16Black = GoogleFonts.poppins(
       fontSize: 16.sp, fontWeight: FontWeight.w500, color: AppColors.blackColor);
-  static TextStyle semiBold16Primary = GoogleFonts.poppins(
-      fontSize: 16.sp, fontWeight: FontWeight.w500, color: AppColors.primaryColor);
+  static TextStyle semiBold16Primary = GoogleFonts.inter(
+      fontSize: 16.sp, fontWeight: FontWeight.w400, color: AppColors.primaryColor);
+  static TextStyle semiBold13Primary = GoogleFonts.inter(
+      fontSize: 13.sp, fontWeight: FontWeight.w400, color: AppColors.primaryColor);
+  static TextStyle semiBold18White = GoogleFonts.poppins(
+      fontSize: 16.sp, fontWeight: FontWeight.w700, color: AppColors.whiteColor);
 
   static TextStyle bol14yellow = GoogleFonts.poppins(
       fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.primaryColor);
