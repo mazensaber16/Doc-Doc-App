@@ -9,6 +9,8 @@ import 'package:doc_doc/feature/domain/repository/data_source/remote_data_source
 
 import 'package:injectable/injectable.dart';
 
+import '../../../../../../core/cache/shared_preference_utils.dart';
+
 @Injectable(as:AuthRemoteDataSource )
 class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   ApiManager apiManager;
@@ -64,12 +66,19 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       final List<ConnectivityResult> connectivityResult = await (Connectivity().checkConnectivity());
       if (connectivityResult.contains(ConnectivityResult.wifi) ||
           connectivityResult.contains(ConnectivityResult.mobile)) {
+       var token= SharedPreferenceUtils.saveData(key: "token", value: ApiConstants.tokenApi);
+        print(token);
+
         var response = await apiManager.postData(
           endPoint: ApiConstants.loginEndPoint,
           body: {
             "email": email,
             "password": password,
           },
+          headers: {
+            'Authorization': 'Bearer $token',
+            'Accept': 'application/json',
+          }
         );
         var loginResponse = LoginResponseDm.fromJson(response.data);
         if (response.statusCode! >= 200 && response.statusCode! < 300) {
