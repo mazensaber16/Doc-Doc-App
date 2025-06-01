@@ -13,8 +13,11 @@ class AppStyles {
       fontWeight: FontWeight.w500,
       color: AppColors.secondGreyColor);
 
+
   static TextStyle regular20Grey = GoogleFonts.poppins(
       fontSize: 20, fontWeight: FontWeight.w200, color: AppColors.greyColor);
+  static TextStyle regular16textGrey = GoogleFonts.inter(
+      fontSize: 16, color: AppColors.textColor);
 
   static TextStyle regular20White = GoogleFonts.poppins(
       fontSize: 20, fontWeight: FontWeight.bold, color: AppColors.whiteColor);

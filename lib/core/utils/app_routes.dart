@@ -5,4 +5,5 @@ class AppRoutes {
   static String splashRoute = "splash";
   static String onboardingRoute = "onboarding";
   static String forgotPasswordRoute = "forgot";
+  static String doctorDetailsScreenRoute = "details";
 }

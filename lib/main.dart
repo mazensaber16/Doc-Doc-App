@@ -1,4 +1,5 @@
 import 'package:doc_doc/core/di/di.dart';
+import 'package:doc_doc/feature/presentation/hom/pages/doctor_details.dart';
 import 'package:doc_doc/feature/presentation/hom/pages/home_screen.dart';
 import 'package:doc_doc/feature/presentation/login/pages/login_screen.dart';
 import 'package:doc_doc/feature/presentation/onboarding/pages/onboarding_screen.dart';
@@ -33,13 +34,14 @@ class MyApp extends StatelessWidget {
             title: 'Doc Doc',
             theme: ThemeData(),
             debugShowCheckedModeBanner: false,
-            initialRoute:AppRoutes.splashRoute,
+            initialRoute:AppRoutes.doctorDetailsScreenRoute,
             routes: {
                 AppRoutes.splashRoute:(context)=>const SplashScreen(),
                 AppRoutes.loginRoute:(context)=>const LoginScreen(),
                 AppRoutes.onboardingRoute:(context)=>const OnboardingScreen(),
               AppRoutes.registerRoute:(context)=>RegisterScreen(),
               AppRoutes.homeRoute:(context)=> HomeScreen(),
+              AppRoutes.doctorDetailsScreenRoute:(context)=>DoctorDetails()
 
             },
           );

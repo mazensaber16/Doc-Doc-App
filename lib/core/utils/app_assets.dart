@@ -17,6 +17,8 @@ class AssetsManager {
   static const String childrenImage="assets/icon/children.png";
   static const String pediatricImage="assets/icon/pediatric.png";
   static const String radiologyImage="assets/icon/radiology.png";
-  static const String doctorAnime="assets/icon/download (1).png";
+  static const String doctorAnime="assets/icon/anime_photo.jpg";
+  static const String chatIcon="assets/icon/chat_icon.png";
+  static const String voiceCallIcon="assets/icon/icon_call.png";
 
 }
