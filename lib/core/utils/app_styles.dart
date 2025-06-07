@@ -8,6 +8,8 @@ class AppStyles {
       fontSize: 36, fontWeight: FontWeight.w400, color: AppColors.whiteColor);
   static TextStyle regular16grey = GoogleFonts.inter(
       fontSize: 10.sp, fontWeight: FontWeight.w700, color: AppColors.secondGreyColor);
+  static TextStyle green16grey = GoogleFonts.inter(
+      fontSize: 16.sp, fontWeight: FontWeight.w400, color: AppColors.greenColor);
   static TextStyle regular14grey = GoogleFonts.inter(
       fontSize: 14.sp,
       fontWeight: FontWeight.w500,

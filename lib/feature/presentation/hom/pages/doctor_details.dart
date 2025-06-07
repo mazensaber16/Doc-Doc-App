@@ -1,4 +1,5 @@
 import 'package:doc_doc/core/utils/app_styles.dart';
+import 'package:doc_doc/feature/domain/entity/home/get_specialise_entity.dart';
 import 'package:doc_doc/feature/presentation/widgets/custom_elevated_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,12 +12,13 @@ class DoctorDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var arguments = ModalRoute.of(context)?.settings.arguments as DoctorEntity;
     return Scaffold(
       backgroundColor: AppColors.whiteColor,
       appBar: AppBar(
           backgroundColor: AppColors.transparentColor,
           title: Text(
-            'Dr Randy Wigham',
+            arguments.name ?? "",
             style: AppStyles.semiBold20Black,
           ),
           centerTitle: true,
@@ -43,6 +45,7 @@ class DoctorDetails extends StatelessWidget {
         padding: EdgeInsets.symmetric(vertical: 42.h),
         child: Align(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
                 padding: EdgeInsets.only(right: 18.w, bottom: 11.5.h),
@@ -64,10 +67,10 @@ class DoctorDetails extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Dr. Randy Wigham",
+                          Text(arguments.name ?? "",
                               style: AppStyles.bold17Black),
                           SizedBox(height: 4.h),
-                          Text("General | RSUD Gatot Subroto ",
+                          Text(arguments.address ?? "",
                               style: AppStyles.regular16grey),
                           SizedBox(height: 4.h),
                           Row(
@@ -111,7 +114,7 @@ class DoctorDetails extends StatelessWidget {
                     ),
                     SizedBox(height: 12.h),
                     Text(
-                      "Dr. Jenny Watson is the top most Immunologists specialist in Christ Hospital at London. She achived several awards for her wonderful contribution in medical field. She is available for private consultation.",
+                           arguments.description ?? "No information available",
                       style: AppStyles.regular16textGrey,
                     ),
                     SizedBox(height: 24.h),
@@ -121,7 +124,7 @@ class DoctorDetails extends StatelessWidget {
                     ),
                     SizedBox(height: 12.h),
                     Text(
-                      "Monday - Friday, 08.00 AM - 20.00 PM",
+                      arguments.startTime ?? "No information available",
                       style: AppStyles.regular16textGrey,
                     ),
                     SizedBox(height: 24.h),
@@ -131,12 +134,13 @@ class DoctorDetails extends StatelessWidget {
                     ),
                     SizedBox(height: 12.h),
                     Text(
-                      "4726482464",
+                      arguments.phone ?? "No information available",
                       style: AppStyles.regular16textGrey,
                     ),
                     SizedBox(height: 24.h),
                     Text(
-                      "Pengalaman Praktik",
+                      arguments.city?.name ?? "No information available",
+
                       style: AppStyles.bold17Black,
                     ),
                     SizedBox(height: 12.h),
@@ -146,7 +150,7 @@ class DoctorDetails extends StatelessWidget {
                     ),
                     SizedBox(height: 12.h),
                     Text(
-                      "2017 - sekarang",
+                     arguments.degree ?? "No information available",
                       style: AppStyles.regular16textGrey,
                     ),
                   ],

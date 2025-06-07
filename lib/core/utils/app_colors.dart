@@ -12,5 +12,7 @@ class AppColors {
   static const Color secondWhiteColor = Color(0xFFF5F5F5);
   static const Color greenColor = Color(0xFF22C55E);
   static const Color transparentColor = Colors.transparent;
+  static const Color searchColor = Color(0xFFC2C2C2);
+
 
 }

@@ -6,4 +6,6 @@ class AppRoutes {
   static String onboardingRoute = "onboarding";
   static String forgotPasswordRoute = "forgot";
   static String doctorDetailsScreenRoute = "details";
+  static String seeAllDoctors = "seeAllDoc";
+  static String appointmentRoute = "appointment";
 }

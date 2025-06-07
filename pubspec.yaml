@@ -64,6 +64,12 @@ dependencies:
   firebase_core:
   firebase_auth:
   quickalert:
+  easy_stepper:
+  date_picker_timeline:
+  calendar_day_slot_navigator:
+  flutter_datetime_picker:
+  flutter_time_picker_spinner:
+  time_slot:
 
 
 

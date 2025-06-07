@@ -1,3 +1,5 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:doc_doc/core/utils/app_routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../core/utils/app_assets.dart';
@@ -15,14 +17,7 @@ class RecommendedDoctorsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CustomTitleWidget(
-          title: "Recommendation Doctor",
-          onSeeAllTap: () {
-            // TODO: Navigate to View All Doctors Screen
-          },
-          titleStyle: AppStyles.bold17Black,
-        ),
-        SizedBox(height: 12.h),
+
         ListView.separated(
           itemCount: doctors.length,
           shrinkWrap: true,
@@ -33,6 +28,7 @@ class RecommendedDoctorsSection extends StatelessWidget {
             return InkWell(
               onTap: () {
                 // TODO: Navigate to Doctor Details
+                Navigator.pushNamed(context,AppRoutes.doctorDetailsScreenRoute, arguments: doctor);
               },
               child: Row(
                 children: [
@@ -41,8 +37,10 @@ class RecommendedDoctorsSection extends StatelessWidget {
                     height: 110.h,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
-                      image: const DecorationImage(
-                        image: AssetImage(AssetsManager.doctorAnime),
+                      image:  const DecorationImage(
+                        image: AssetImage(
+                         AssetsManager.doctorAnime,
+                        ),
                         fit: BoxFit.cover,
                       ),
                     ),

@@ -6,11 +6,14 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/api/api_manager.dart';
 import '../../../../../core/utils/app_colors.dart';
 
+import '../../../../../core/utils/app_routes.dart';
+import '../../../../../core/utils/app_styles.dart';
 import '../../../../data/data_source/home/home_remote_data_impl.dart';
 import '../../../../data/repository/home/home_repo_impl.dart';
 import '../../../../domain/entity/home/get_specialise_entity.dart';
 import '../../../../domain/use_case/get_specia_use_case.dart';
 import '../../../widgets/booking_banner.dart';
+import '../../../widgets/custom_title_widget.dart';
 import '../../../widgets/doctor_specialist.dart';
 import '../../../widgets/home_header.dart';
 import '../../../widgets/recommende_doctor.dart';
@@ -60,6 +63,15 @@ class HomeTab extends StatelessWidget {
                     SizedBox(height: 24.h),
                     DoctorSpecialitiesSection(specialities: specialities),
                     SizedBox(height: 24.h),
+                    CustomTitleWidget(
+                      title: "Recommendation Doctor",
+                      onSeeAllTap: () {
+                        // TODO: Navigate to View All Doctors Screen
+                        Navigator.pushNamed(context, AppRoutes.seeAllDoctors);
+                      },
+                      titleStyle: AppStyles.bold17Black,
+                    ),
+                    SizedBox(height: 12.h),
                     RecommendedDoctorsSection(doctors:doctors),
                   ],
                 ),

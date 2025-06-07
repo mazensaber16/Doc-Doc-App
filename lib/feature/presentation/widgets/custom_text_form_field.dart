@@ -19,6 +19,9 @@ class CustomTextFormField extends StatefulWidget {
   bool isPassword;
   TextStyle? textStyle;
   bool readonly;
+  void Function(String)? onChanged;
+  double? width;
+  double? height;
 
   CustomTextFormField({
     super.key,
@@ -28,6 +31,8 @@ class CustomTextFormField extends StatefulWidget {
     this.hintStyle,
     this.textStyle,
     this.label,
+    this.width,
+    this.height,
     this.labelStyle,
     this.prefixIcon,
     this.suffixIcon,
@@ -37,6 +42,7 @@ class CustomTextFormField extends StatefulWidget {
     this.keyboardType = TextInputType.text,
     this.borderColor = AppColors.whiteColor,
     this.readonly = false,
+    this.onChanged
   });
 
   @override
@@ -47,14 +53,16 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20.h, vertical: 12.w),
+      padding: EdgeInsets.symmetric(horizontal: widget.width??20.h, vertical:  widget.height??12.w),
       child: TextFormField(
+
         style: widget.textStyle,
         obscureText: widget.isObscureText,
         keyboardType: widget.keyboardType,
         controller: widget.controller,
         validator: widget.validator,
         readOnly: widget.readonly,
+        onChanged:widget.onChanged,
         cursorColor: AppColors.primaryColor,
         decoration: InputDecoration(
           filled: true,
