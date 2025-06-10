@@ -70,6 +70,7 @@ dependencies:
   flutter_datetime_picker:
   flutter_time_picker_spinner:
   time_slot:
+  provider:
 
 
 

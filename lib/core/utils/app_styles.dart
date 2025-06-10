@@ -14,6 +14,10 @@ class AppStyles {
       fontSize: 14.sp,
       fontWeight: FontWeight.w500,
       color: AppColors.secondGreyColor);
+  static TextStyle regular10grey = GoogleFonts.inter(
+      fontSize: 10.sp,
+      fontWeight: FontWeight.w500,
+      color: AppColors.secondGreyColor);
 
 
   static TextStyle regular20Grey = GoogleFonts.poppins(
@@ -36,7 +40,7 @@ class AppStyles {
       fontSize: 20.sp, fontWeight: FontWeight.bold, color: AppColors.blackColor);
   static TextStyle bold17Black = GoogleFonts.inter(
       fontSize: 17.sp, fontWeight: FontWeight.bold, color: AppColors.blackColor);
-  static TextStyle semiBold16Black = GoogleFonts.poppins(
+  static TextStyle semiBold16Black = GoogleFonts.inter(
       fontSize: 16.sp, fontWeight: FontWeight.w500, color: AppColors.blackColor);
   static TextStyle semiBold16Primary = GoogleFonts.inter(
       fontSize: 16.sp, fontWeight: FontWeight.w400, color: AppColors.primaryColor);
@@ -47,6 +51,8 @@ class AppStyles {
 
   static TextStyle bol14yellow = GoogleFonts.poppins(
       fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.primaryColor);
+  static TextStyle bol14Black = GoogleFonts.inter(
+      fontSize: 14, fontWeight: FontWeight.bold, color: AppColors.blackColor);
 
   static TextStyle semiBold20primary = GoogleFonts.poppins(
       fontSize: 24, fontWeight: FontWeight.w500, color: AppColors.primaryColor);

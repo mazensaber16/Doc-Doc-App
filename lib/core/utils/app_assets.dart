@@ -20,5 +20,9 @@ class AssetsManager {
   static const String doctorAnime="assets/icon/anime_photo.jpg";
   static const String chatIcon="assets/icon/chat_icon.png";
   static const String voiceCallIcon="assets/icon/icon_call.png";
+  static const String masterCard="assets/icon/mastercard.png";
+  static const String americanExpress="assets/icon/american.png";
+  static const String barclay="assets/icon/barclays.png";
+  static const String capital="assets/icon/capital.png";
 
 }

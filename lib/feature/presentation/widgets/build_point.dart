@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../appointment/pages/summary_screen.dart';
 
 class SessionTypeSelector extends StatefulWidget {
+
+  String selectedOption = 'In Person';
+  SessionTypeSelector({
+    Key? key,
+  }) : super(key: key);
   @override
   _SessionTypeSelectorState createState() => _SessionTypeSelectorState();
 }
 
+
+
 class _SessionTypeSelectorState extends State<SessionTypeSelector> {
-  String selectedOption = 'In Person';
+
 
   Widget buildOption({
     required String label,
@@ -14,27 +24,27 @@ class _SessionTypeSelectorState extends State<SessionTypeSelector> {
     required Color iconColor,
   }) {
     return ListTile(
-      leading: CircleAvatar(
-        radius: 20,
-        backgroundColor: iconColor.withOpacity(0.1),
-        child: Icon(icon, color: iconColor),
-      ),
-      title: Text(label),
-      trailing: Radio<String>(
-        value: label,
-        groupValue: selectedOption,
-        onChanged: (value) {
+        leading: CircleAvatar(
+          radius: 20.r,
+          backgroundColor: iconColor.withOpacity(0.1),
+          child: Icon(icon, color: iconColor),
+        ),
+        title: Text(label),
+        trailing: Radio<String>(
+          value: label,
+          groupValue: selectedOption,
+          onChanged: (value) {
+            setState(() {
+              selectedOption = value!;
+            });
+          },
+          activeColor: Colors.blue,
+        ),
+        onTap: () {
           setState(() {
-            selectedOption = value!;
+            selectedOption = label;
           });
-        },
-        activeColor: Colors.blue,
-      ),
-      onTap: () {
-        setState(() {
-          selectedOption = label;
-        });
-      },
+        }
     );
   }
 
@@ -60,4 +70,4 @@ class _SessionTypeSelectorState extends State<SessionTypeSelector> {
       ],
     );
   }
-}
+}  

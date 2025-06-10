@@ -1,35 +1,40 @@
 import 'package:date_picker_timeline/date_picker_widget.dart';
-import 'package:doc_doc/feature/presentation/widgets/build_point.dart';
-import 'package:doc_doc/feature/presentation/widgets/custom_elevated_button.dart';
 import 'package:easy_stepper/easy_stepper.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 import '../../../../core/utils/app_colors.dart';
+import '../../../../core/utils/app_routes.dart';
 import '../../../../core/utils/app_styles.dart';
+import '../../widgets/build_point.dart';
+import '../../widgets/custom_elevated_button.dart';
+import '../../widgets/model.dart';
+import 'appointment_provider.dart';
 
-class AppointmentScreen extends StatefulWidget {
-  AppointmentScreen({super.key});
-
-  @override
-  State<AppointmentScreen> createState() => _AppointmentScreenState();
-}
-
-class _AppointmentScreenState extends State<AppointmentScreen> {
-  int activeStep = 0;
+class AppointmentScreen extends StatelessWidget {
   DateTime selectedDate = DateTime.now();
+  String ?selectedTime;
+  AppointmentScreen({super.key ,});
+
+  int activeStep = 0;
+  String selectedOption = 'In Person';
+
   List<String> availableTimes = [
     '09:00 AM', '10:00 AM', '11:00 AM',
     '12:00 PM', '01:00 PM', '02:00 PM',
     '03:00 PM', '04:00 PM', '05:00 PM',
   ];
 
-  String? selectedTime;
 
   @override
   Widget build(BuildContext context) {
+    final appointmentProvider = Provider.of<AppointmentProvider>(context);
     return SafeArea(
       child: Scaffold(
+        backgroundColor: AppColors.whiteColor,
+
         appBar: AppBar(
           backgroundColor: AppColors.transparentColor,
           title: Text(
@@ -79,17 +84,16 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                         // TODO: Custom Date Picker
 
                         DateTime? pickedDate = await showDatePicker(
-                        context: context,
-                        initialDate: selectedDate,
-                        firstDate: DateTime.now(),
-                        lastDate: DateTime.now().add(Duration(days: 365)),
-                        );
+                          context: context,
 
+                          initialDate: appointmentProvider.selectedDate,
+                          firstDate: DateTime.now(),
+                          lastDate: DateTime.now().add(Duration(days: 365)),
+                        );
                         if (pickedDate != null) {
-                        setState(() {
-                        selectedDate = pickedDate;
-                        });
+                          appointmentProvider.setSelectedDate(selectedDate);
                         }
+
                       },
                       child: Text(" Set Manual ",
                           style: AppStyles.semiBold16Primary),
@@ -107,12 +111,10 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                     daysCount: 30,
                     locale: 'en_US',
                     onDateChange: (date) {
-                      setState(() {
-                        selectedDate = date;
-                      });
+                      appointmentProvider.setSelectedDate(date);
                     },
-                    initialSelectedDate: selectedDate,
-                  ),
+                    initialSelectedDate:appointmentProvider.selectedDate,
+  ),
                 ),
                 SizedBox(height: 20.h),
                 Text("Available Time", style: AppStyles.bold20Black),
@@ -125,12 +127,11 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                   physics: NeverScrollableScrollPhysics(),
                   childAspectRatio: 3.5, // لتناسب العرض والطول
                   children: availableTimes.map((time) {
-                    final isSelected = selectedTime == time;
+                    final isSelected = appointmentProvider.selectedTime == time;
                     return GestureDetector(
                       onTap: () {
-                        setState(() {
-                          selectedTime = time;
-                        });
+
+                          appointmentProvider.setSelectedTime(time);
                       },
                       child: Container(
                         width: 60.w,
@@ -155,15 +156,21 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
                   }).toList(),
                 ),
                 SizedBox(height: 24.h),
-              Text("Appointment Type", style: AppStyles.bold20Black),
+                Text("Appointment Type", style: AppStyles.bold20Black),
                 SizedBox(height: 16.h),
-              SessionTypeSelector(),
+                SessionTypeSelector(),
                 SizedBox(height: 10.h),
                 CustomElevatedButton(onPressed: (){
                   //Todo Appointment Booking Logic
+                  //Navigate to Payment Screen
+
+                  Navigator.pushNamed(context, AppRoutes.paymentRoute);
+
                 }, backgroundColor: AppColors.primaryColor,
-                text: "Continue",
-                )
+                  text: "Continue",
+                ),
+
+
               ],
             ),
           ),
@@ -243,7 +250,9 @@ class _AppointmentScreenState extends State<AppointmentScreen> {
           ),
         ),
       ],
-      onStepReached: (index) => setState(() => activeStep = index),
-    );
+      onStepReached: (index)  => activeStep = index);
+
   }
+
+
 }
